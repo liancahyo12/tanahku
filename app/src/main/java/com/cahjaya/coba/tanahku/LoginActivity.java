@@ -42,17 +42,17 @@ public class LoginActivity extends AppCompatActivity {
         mContext = this;
 
         ButterKnife.bind(this);
-        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        sharedPrefManager = new SharedPrefManager(this);
+//        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+//        sharedPrefManager = new SharedPrefManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading");
         progressDialog.setCancelable(false);
 
-        if (sharedPrefManager.getSPSudahLogin()){
-            startActivity(new Intent(LoginActivity.this, MainActivity.class)
-                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-            finish();
-        }
+//        if (sharedPrefManager.getSPSudahLogin()){
+//            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//            finish();
+//        }
     }
 //    @OnClick(R.id.login) void login() {
 //        progressDialog.show();

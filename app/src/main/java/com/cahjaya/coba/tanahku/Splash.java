@@ -37,10 +37,13 @@ public class Splash extends AppCompatActivity {
             @Override
             public void run() {
 //                if (sharedPrefManager.getSPSudahLogin()){
-                    startActivity(new Intent(Splash.this, MainActivity.class)
-                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                    finish();
+//                    startActivity(new Intent(Splash.this, MainActivity.class)
+//                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//                    finish();
 //                }
+                startActivity(new Intent(Splash.this, LoginActivity.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                finish();
             }
         },waktu_loading);
     }

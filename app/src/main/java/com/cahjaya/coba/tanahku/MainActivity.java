@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     ApiInterface apiInterface;
     Context mContext;
-    @BindView(R.id.tvNama)
-    TextView tvNama;
+//    @BindView(R.id.tvNama)
+//    TextView tvNama;
     @BindView(R.id.homea)
     LinearLayout homea;
     @BindView(R.id.pertama)
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
     @OnClick(R.id.tanyabt) void pengaduan(){
-        startActivity(new Intent(mContext, Pengaduan.class)
+        startActivity(new Intent(mContext, DaftarPengaduan.class)
                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
         finish();
     }

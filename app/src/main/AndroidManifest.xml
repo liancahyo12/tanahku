@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Tanahku">
         <activity
+            android:name=".DaftarPengaduan"
+            android:exported="true" />
+        <activity
             android:name=".Pengaduan"
             android:exported="true" />
         <activity
