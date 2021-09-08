@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.cahjaya.coba.tanahku.model.User;
 import com.cahjaya.coba.tanahku.network.ApiClient;
 import com.cahjaya.coba.tanahku.network.ApiInterface;
+import com.cahjaya.coba.tanahku.network.UtilsApi;
 import com.cahjaya.coba.tanahku.network.response.UserResponse;
 import com.cahjaya.coba.tanahku.utils.SharedPrefManager;
 
@@ -40,55 +41,55 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
         mContext = this;
+        apiInterface = UtilsApi.getAPIService();
+        sharedPrefManager = new SharedPrefManager(this);
 
         ButterKnife.bind(this);
-//        apiInterface = ApiClient.getClient().create(ApiInterface.class);
-//        sharedPrefManager = new SharedPrefManager(this);
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading");
         progressDialog.setCancelable(false);
 
-//        if (sharedPrefManager.getSPSudahLogin()){
-//            startActivity(new Intent(LoginActivity.this, MainActivity.class)
-//                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//            finish();
-//        }
+        if (sharedPrefManager.getSPSudahLogin()){
+            startActivity(new Intent(LoginActivity.this, MainActivity.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+            finish();
+        }
     }
-//    @OnClick(R.id.login) void login() {
-//        progressDialog.show();
-//        Call<UserResponse> postLogin = apiInterface.postLogin(etEmail.getText().toString(),
-//                etPassword.getText().toString());
-//        postLogin.enqueue(new Callback<UserResponse>() {
-//            @Override
-//            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-//                progressDialog.dismiss();
-//
-//                if (response.code() == 200) {
-//                    User user = response.body().getUser();
-//                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, user.getName());
-//                    sharedPrefManager.saveSPString(SharedPrefManager.SP_TOKEN, "Bearer " +response.body().getToken());
-//                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
-//                    startActivity(new Intent(mContext, MainActivity.class)
-//                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//                    finish();
-//                } else {
-//                    Toast.makeText(mContext, "Emai/Password salah", Toast.LENGTH_SHORT).show();
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<UserResponse> call, Throwable t) {
-//                progressDialog.dismiss();
-//            }
-//        });
-//    }
-
     @OnClick(R.id.login) void login() {
+        progressDialog.show();
+        Call<UserResponse> postLogin = apiInterface.postLogin(etEmail.getText().toString(),
+                etPassword.getText().toString());
+        postLogin.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                progressDialog.dismiss();
+
+                if (response.code() == 200) {
+                    User user = response.body().getUser();
+                    sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, user.getName());
+                    sharedPrefManager.saveSPString(SharedPrefManager.SP_TOKEN, "Bearer" +response.body().getToken());
+                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, true);
                     startActivity(new Intent(mContext, MainActivity.class)
                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                     finish();
+                } else {
+                    Toast.makeText(mContext, "Emai/Password salah", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                progressDialog.dismiss();
+            }
+        });
     }
+
+//    @OnClick(R.id.login) void login() {
+//                    startActivity(new Intent(mContext, MainActivity.class)
+//                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+//                    finish();
+//    }
 
     @OnClick(R.id.daftarbtn) void daftar(){
         startActivity(new Intent(LoginActivity.this, RegisterActivity.class)

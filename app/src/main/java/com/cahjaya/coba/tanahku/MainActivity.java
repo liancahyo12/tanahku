@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.cahjaya.coba.tanahku.model.User;
 import com.cahjaya.coba.tanahku.network.ApiClient;
 import com.cahjaya.coba.tanahku.network.ApiInterface;
+import com.cahjaya.coba.tanahku.network.UtilsApi;
 import com.cahjaya.coba.tanahku.utils.SharedPrefManager;
 import com.transitionseverywhere.Fade;
 import com.transitionseverywhere.TransitionManager;
@@ -35,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPrefManager sharedPrefManager;
     ApiInterface apiInterface;
     Context mContext;
-//    @BindView(R.id.tvNama)
-//    TextView tvNama;
+    @BindView(R.id.tvNama)
+    TextView tvNama;
     @BindView(R.id.homea)
     LinearLayout homea;
     @BindView(R.id.pertama)
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout kedua;
     @BindView(R.id.grubbt)
     ViewGroup grubbt;
+    String resultNama;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,16 +54,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         mContext = this;
-//        sharedPrefManager = new SharedPrefManager(this);
-//        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        apiInterface = UtilsApi.getAPIService();
+        sharedPrefManager = new SharedPrefManager(this);
 
-//        tvNama.setText(sharedPrefManager.getSPNama());
+        tvNama.setText(sharedPrefManager.getSPNama());
         pertama.setVisibility(View.GONE);
         homea.setVisibility(View.VISIBLE);
         kedua.setVisibility(View.GONE);
         if (getSupportActionBar() != null) {
             getSupportActionBar().show();
         }
+        initComponents();
+
+        // untuk mendapatkan data dari activity sebelumnya, yaitu activity login.
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            resultNama = extras.getString("name");
+        tvNama.setText(resultNama);
     }
     @OnClick(R.id.pertamabt) void pert() {
         TransitionManager.beginDelayedTransition(grubbt,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
@@ -114,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-//    @OnClick(R.id.btnLogout) void logout() {
-//        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
-//        startActivity(new Intent(MainActivity.this, LoginActivity.class)
-//                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-//        finish();
-//    }
+    @OnClick(R.id.btnLogout) void logout() {
+        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+        startActivity(new Intent(MainActivity.this, LoginActivity.class)
+                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+        finish();
+    }
 //    @OnClick(R.id.btnCekAuth) void cekAuth() {
-////        Toast.makeText(this, sharedPrefManager.getSPToken(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, sharedPrefManager.getSPToken(), Toast.LENGTH_SHORT).show();
 //        Call<User> getUser = apiInterface.getUser(sharedPrefManager.getSPToken());
 //        getUser.enqueue(new Callback<User>() {
 //            @Override
@@ -138,4 +147,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //
 //    }
+    private void initComponents(){
+        tvNama = (TextView) findViewById(R.id.tvNama);
+    }
 }

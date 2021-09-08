@@ -13,6 +13,7 @@ import com.cahjaya.coba.tanahku.utils.PengaduanAdapter;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DaftarPengaduan extends AppCompatActivity {
@@ -26,6 +27,7 @@ public class DaftarPengaduan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_pengaduan);
         addData();
+        ButterKnife.bind(this);
         mContext = this;
         recyclerView = (RecyclerView) findViewById(R.id.dftpengaduan);
 

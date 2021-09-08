@@ -11,27 +11,20 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
-    private static final String url = "http://192.168.8.124:8000/";
+    private static Retrofit retrofit = null;
 
-    private static Retrofit retrofit;
-
-    public static Retrofit getClient() {
+    public static Retrofit getClient(String baseUrl){
         HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        OkHttpClient client = new OkHttpClient.Builder()
-                .addInterceptor(interceptor)
-                .addInterceptor(new TokenAuthenticator())
-                .build();
+        OkHttpClient client = new OkHttpClient.Builder().addInterceptor(interceptor).build();
 
-        if (retrofit == null) {
+        if (retrofit == null){
             retrofit = new Retrofit.Builder()
-                    .baseUrl(url)
-                    .client(client)
+                    .baseUrl(baseUrl)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
                     .build();
         }
-
         return retrofit;
-
     }
 }

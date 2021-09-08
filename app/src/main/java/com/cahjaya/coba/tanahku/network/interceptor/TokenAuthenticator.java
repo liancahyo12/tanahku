@@ -6,6 +6,7 @@ import com.cahjaya.coba.tanahku.LoginActivity;
 import com.cahjaya.coba.tanahku.Tanahku;
 import com.cahjaya.coba.tanahku.network.ApiClient;
 import com.cahjaya.coba.tanahku.network.ApiInterface;
+import com.cahjaya.coba.tanahku.network.UtilsApi;
 import com.cahjaya.coba.tanahku.network.response.UserResponse;
 import com.cahjaya.coba.tanahku.utils.SharedPrefManager;
 
@@ -32,7 +33,7 @@ public class TokenAuthenticator implements Interceptor{
     public Response intercept(Chain chain) throws IOException {
         Response mainResponse = chain.proceed(chain.request());
         Request mainRequest = chain.request();
-        ApiInterface apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        ApiInterface apiInterface = UtilsApi.getAPIService();
 
         if ( mainResponse.code() == 401 || mainResponse.code() == 403 ) {
             String token = sharedPrefManager.getSPToken();

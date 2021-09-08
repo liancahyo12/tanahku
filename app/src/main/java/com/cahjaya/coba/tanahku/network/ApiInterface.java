@@ -18,10 +18,16 @@ public interface ApiInterface {
     public Call<UserResponse> postLogin(@Field("email") String email,
                                         @Field("password") String password);
 
-    @GET("api/auth/me")
+    @GET("api/auth/user-profile")
     public Call<User> getUser(@Header("Authorization") String token);
 
     @POST("api/auth/refresh")
     public Call<UserResponse> refreshToken(@Header("Authorization") String token);
 
+    @FormUrlEncoded
+    @POST("api/auth/register")
+    public Call<UserResponse> postRegister(@Field("name") String name,
+                                        @Field("email") String email,
+                                        @Field("password") String password,
+                                        @Field("password_confirmation") String password_confirmation);
 }
