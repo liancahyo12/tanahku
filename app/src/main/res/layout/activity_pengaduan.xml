@@ -31,32 +31,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_logo" />
 
     <EditText
-        android:id="@+id/hak"
+        android:id="@+id/nohak"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="24dp"
-        android:hint="No hak"
+        android:inputType="number"
+        android:maxLength="5"
+        android:hint="No hak (Jika Ada)"
         android:selectAllOnFocus="true"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle" />
-
-    <EditText
-        android:id="@+id/desa"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Desa"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hak" />
 
     <EditText
         android:id="@+id/noberkas"
@@ -65,12 +53,42 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:hint="No Berkas(Opsional)"
+        android:hint="No Berkas(Jika Ada)"
         android:selectAllOnFocus="true"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/desa" />
+        app:layout_constraintTop_toBottomOf="@+id/nohak" />
+
+    <EditText
+        android:id="@+id/tahunberkas"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:hint="Tahun Berkas(Jika Ada)"
+        android:inputType="number"
+        android:maxLength="4"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noberkas" />
+
+    <EditText
+        android:id="@+id/alamat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="24dp"
+        android:hint="Alamat Tanah"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tahunberkas" />
 
     <EditText
         android:id="@+id/pertanyaan"
@@ -83,10 +101,10 @@
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noberkas" />
+        app:layout_constraintTop_toBottomOf="@+id/alamat" />
 
     <Button
-        android:id="@+id/daftarbtn"
+        android:id="@+id/tanyakanbt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="start"

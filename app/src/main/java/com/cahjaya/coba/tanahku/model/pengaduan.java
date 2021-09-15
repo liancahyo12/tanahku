@@ -1,23 +1,37 @@
 package com.cahjaya.coba.tanahku.model;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class pengaduan {
 
-    private String nama;
-    private String noberkas;
-    private String pengaduant;
+    @Expose
+    @SerializedName("id") int id;
+    @Expose
+    @SerializedName("nohak") String nohak;
+    @Expose
+    @SerializedName("noberkas") String noberkas;
+    @Expose
+    @SerializedName("tahun_berkas") String tahun_berkas;
+    @Expose
+    @SerializedName("alamat") String alamat;
+    @Expose
+    @SerializedName("deskripsi") String deskripsi;
 
-    public pengaduan(String nama, String noberkas, String pengaduant) {
-        this.nama = nama;
-        this.noberkas = noberkas;
-        this.pengaduant = pengaduant;
-
+    public int getId() {
+        return id;
     }
-    public String getNama() {
-        return nama;
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getNohak() {
+        return nohak;
+    }
+
+    public void setNohak(String nohak) {
+        this.nohak = nohak;
     }
 
     public String getNoberkas() {
@@ -28,14 +42,27 @@ public class pengaduan {
         this.noberkas = noberkas;
     }
 
-    public String getPengaduant() {
-        return pengaduant;
+    public String getTahun_berkas() {
+        return tahun_berkas;
     }
 
-    public void setPengaduant(String pengaduant) {
-        this.pengaduant = pengaduant;
+    public void setTahun_berkas(String tahun_berkas) {
+        this.tahun_berkas = tahun_berkas;
     }
 
+    public String getAlamat() {
+        return alamat;
+    }
 
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
 
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
 }

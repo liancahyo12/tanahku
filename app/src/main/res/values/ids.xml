@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="tvNama" type="id" />
+    <item name="btnLogout" type="id" />
+    <item name="btnCekAuth" type="id" />
+</resources>
