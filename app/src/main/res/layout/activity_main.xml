@@ -1,102 +1,266 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <ScrollView
         android:id="@+id/mainscrl"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/grubbt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
+            android:paddingBottom="60dp">
+
             <LinearLayout
                 android:id="@+id/homea"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:id="@+id/tvNama"
-                    android:text="Namanya"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
 
 
-<!--                <Button-->
-<!--                    android:id="@+id/btnCekAuth"-->
-<!--                    android:text="CEK AUTH"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"/>-->
-                <Button
+                <!--                <Button-->
+                <!--                    android:id="@+id/btnCekAuth"-->
+                <!--                    android:text="CEK AUTH"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"/>-->
+                <androidx.cardview.widget.CardView
                     android:id="@+id/pertamabt"
+                    style="@style/mainbg"
                     android:layout_width="320dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="#ff4081"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Pendaftaran Pertama Kali Pengakuan/Penegasan Hak"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-                <Button
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        >
+
+                        <ImageView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_baseline_list_alt_24" />
+
+                        <TextView
+                            android:id="@+id/tx1bt1"
+                            style="@style/maintext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/comfortaa"
+                            android:paddingLeft="10dp"
+                            android:text="Pendaftaran"
+                            android:textSize="36sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tx2bt1"
+                            style="@style/maintext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tx1bt1"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="70dp"
+                            android:text="Pendaftaran Pertama Kali Pengakuan/Penegasan Hak"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ln1"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/kuningtanah"
+                            android:orientation="horizontal" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
                     android:id="@+id/keduabt"
+                    style="@style/mainbg"
                     android:layout_width="320dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="#03a9f4"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Pengukuran dan Pemetaan Kadastral"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textSize="36sp"
-                    android:textStyle="bold"/>
-                <Button
-                    android:id="@+id/tanyabt"
-                    android:layout_width="320dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:background="#03a9f4"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Pengaduan"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textSize="36sp"
-                    android:textStyle="bold"/>
-                <Button
-                    android:id="@+id/btnLogout"
-                    android:text="LOG OUT"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="170dp"
+                            android:layout_height="170dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_baseline_measure_24">
+
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/tx1bt2"
+                            style="@style/maintext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/comfortaa"
+                            android:paddingLeft="10dp"
+                            android:text="Pengukuran"
+                            android:textSize="36sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tx2bt2"
+                            style="@style/maintext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tx1bt2"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="70dp"
+                            android:text="Pengukuran dan Pemetaan Kadastral"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:id="@+id/ln2"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/kuningtanah"
+                            android:orientation="horizontal" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/akunm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNama"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Namanya" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/tanyabt"
+                    style="@style/mainbg"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tx1bt3"
+                            style="@style/maintext"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/comfortaa"
+                            android:paddingLeft="10dp"
+                            android:text="Pengaduan"
+                            android:textSize="36sp"
+                            android:textStyle="bold"
+                            android:layout_centerHorizontal="true"/>
+
+                        <LinearLayout
+                            android:id="@+id/ln3"
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_below="@id/tx1bt3"
+                            android:layout_alignParentBottom="true"
+                            android:background="@color/kuningtanah"
+                            android:orientation="horizontal" />
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnLogout"
+                    style="@style/mainbg"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+                    <TextView
+                        style="@style/maintext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/comfortaa"
+                        android:paddingLeft="10dp"
+                        android:text="Logout"
+                        android:textAlignment="center"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/pertama"
-                android:layout_margin="25dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="25dp"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tv_logo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaa"
                     android:text="Pendaftaran"
                     android:textAlignment="center"
-                    android:textSize="40sp"
-                    android:fontFamily="@font/comfortaa"/>
+                    android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/tv_subtitle"
@@ -105,6 +269,7 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Pendaftaran Pertama Kali Pengakuan/Penegasan Hak"
                     android:textSize="17sp" />
+
                 <TextView
                     android:id="@+id/tv_sy"
                     android:layout_width="wrap_content"
@@ -112,95 +277,117 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Syarat - syarat :"
                     android:textSize="17sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Permohonan"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Permohonan" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fotokopi KTP dan KK legalisir"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Fotokopi KTP dan KK legalisir" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fotokopi Sertifikat"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Fotokopi Sertifikat" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fotokopi SPPT legalisir"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Fotokopi SPPT legalisir" />
                 </LinearLayout>
-                <Button
+
+                <androidx.cardview.widget.CardView
                     android:id="@+id/calc1_btn"
+                    style="@style/mainbg"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="10dp"
-                    android:background="#03a9f4"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Hitung Biaya"
                     android:layout_marginTop="10dp"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold"/>
+                    android:layout_marginBottom="10dp"
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+                    <TextView
+                        style="@style/maintext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/comfortaa"
+                        android:paddingLeft="10dp"
+                        android:text="Hitung Biaya"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
             </LinearLayout>
+
             <LinearLayout
+                android:id="@+id/kedua"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:id="@+id/kedua">
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/tv_logo1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/comfortaa"
                     android:text="Pengukuran"
                     android:textAlignment="center"
-                    android:textSize="40sp"
-                    android:fontFamily="@font/comfortaa"/>
+                    android:textSize="40sp" />
 
                 <TextView
                     android:id="@+id/tv_subtitle1"
@@ -209,6 +396,7 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Pengukuran dan Pemetaan Kadastral"
                     android:textSize="17sp" />
+
                 <TextView
                     android:id="@+id/tv_sy1"
                     android:layout_width="wrap_content"
@@ -216,15 +404,16 @@
                     android:fontFamily="@font/roboto_regular"
                     android:text="Syarat - syarat :"
                     android:textSize="17sp" />
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -232,309 +421,424 @@
                         android:paddingLeft="10dp"
                         android:text="Letter C" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Fotokopi KTP dan KK legalisir"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Fotokopi KTP dan KK legalisir" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SPPT"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="SPPT" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PBT"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="PBT" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Keterangan dari Desa"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Keterangan dari Desa" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Berita Acara Kesaksian(M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Berita Acara Kesaksian(M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Pernyataan dari Desa (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Pernyataan dari Desa (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Akta"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Akta" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Permohonan"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Permohonan" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Kuasa Pemohon ke PPAT"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Kuasa Pemohon ke PPAT" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Pernyataan Atas Batas (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Pernyataan Atas Batas (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BA Penetapan Batas (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="BA Penetapan Batas (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Pernyataan Penguasaan Fisik (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Pernyataan Penguasaan Fisik (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Keterangan HMA"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Keterangan HMA" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Pernyataan Kurang Lebih Luas (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Pernyataan Kurang Lebih Luas (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Keterangan Perubahan ADM"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Keterangan Perubahan ADM" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="BPHTB"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="BPHTB" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="IPH"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="IPH" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Pernyataan Bayar Pajak (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Pernyataan Bayar Pajak (M.6000)" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
+
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_check_24"
-                        />
+                        android:src="@drawable/ic_baseline_check_24" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Surat Pernyataan Tidak Sengketa (M.6000)"
-                        android:paddingLeft="10dp"/>
+                        android:paddingLeft="10dp"
+                        android:text="Surat Pernyataan Tidak Sengketa (M.6000)" />
                 </LinearLayout>
-                <Button
+                <androidx.cardview.widget.CardView
                     android:id="@+id/calc2_btn"
+                    style="@style/mainbg"
                     android:layout_width="320dp"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
-                    android:background="#03a9f4"
-                    android:fontFamily="@font/comfortaa"
-                    android:text="Hitung Biaya"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold"/>
+                    android:clickable="true"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:innerRadius="0dp"
+                    android:shape="ring"
+                    android:thicknessRatio="1.9"
+                    app:cardElevation="10dp">
+                    <TextView
+                        style="@style/maintext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/comfortaa"
+                        android:paddingLeft="10dp"
+                        android:text="Hitung Biaya"
+                        android:textAlignment="center"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+    <LinearLayout
+        android:id="@+id/main2bt"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_alignParentBottom="true">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/homebt"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:innerRadius="0dp"
+            app:cardCornerRadius="0dp">
+            <RelativeLayout
+                android:paddingTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <ImageView
+                    android:id="@+id/homeimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_baseline_home_24" />
+                <TextView
+                    android:id="@+id/hometx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Beranda"
+                    android:textSize="10sp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/homeimg"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profilebt"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:innerRadius="0dp"
+            app:cardCornerRadius="0dp">
+            <RelativeLayout
+                android:paddingTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/profileimg"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_person_24"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/profiletx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="10sp"
+                    android:text="Akun"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/profileimg"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</RelativeLayout>

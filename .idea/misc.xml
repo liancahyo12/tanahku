@@ -7,19 +7,24 @@
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/bg_rectangle_button.xml" value="0.22205128205128205" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/bg_rectangle_edittext.xml" value="0.22205128205128205" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.11458333333333333" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.11458333333333333" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_home_biru_24.xml" value="0.11458333333333333" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_list_alt_24.xml" value="0.11458333333333333" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_measure_24.xml" value="0.11458333333333333" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_baseline_person_biru_24.xml" value="0.11458333333333333" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_launcher_background.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.11458333333333333" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_cacl1.xml" value="0.33" />
-        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_calc2.xml" value="0.2" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_calc2.xml" value="0.25" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_daftar_pengaduan.xml" value="0.22" />
-        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_komen.xml" value="0.12" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_komen.xml" value="0.22" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_login.xml" value="0.25" />
-        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_main.xml" value="0.19626168224299065" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_pengaduan.xml" value="0.2" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_register.xml" value="0.209375" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/activity_splasha.xml" value="0.209375" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/recykomen.xml" value="0.22" />
-        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/recypengaduan.xml" value="0.1" />
+        <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/layout/recypengaduan.xml" value="0.37087378640776697" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.11614583333333334" />
         <entry key="..\:/Users/Lian Cahyo/StudioProjects/tanahku/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.11614583333333334" />
       </map>

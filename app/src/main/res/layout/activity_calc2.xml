@@ -62,12 +62,32 @@
                 android:layout_height="wrap_content"
                 android:text="Non Pertanian" />
         </RadioGroup>
-        <Button
+        <androidx.cardview.widget.CardView
             android:id="@+id/hitungbt1"
-            android:layout_gravity="center"
-            android:layout_width="wrap_content"
+            style="@style/mainbg"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:text="Hitung"/>
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:clickable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:innerRadius="0dp"
+            android:shape="ring"
+            android:thicknessRatio="1.9"
+            app:cardElevation="10dp">
+            <TextView
+                style="@style/maintext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/comfortaa"
+                android:paddingLeft="10dp"
+                android:text="Hitung"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

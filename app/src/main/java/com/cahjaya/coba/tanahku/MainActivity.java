@@ -1,15 +1,18 @@
 package com.cahjaya.coba.tanahku;
 
+import androidx.annotation.DrawableRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.interpolator.view.animation.FastOutLinearInInterpolator;
 import androidx.interpolator.view.animation.LinearOutSlowInInterpolator;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,11 +21,14 @@ import com.cahjaya.coba.tanahku.model.User;
 import com.cahjaya.coba.tanahku.network.ApiClient;
 import com.cahjaya.coba.tanahku.network.ApiInterface;
 import com.cahjaya.coba.tanahku.network.UtilsApi;
+import com.cahjaya.coba.tanahku.network.response.UserResponse;
 import com.cahjaya.coba.tanahku.utils.SharedPrefManager;
 import com.transitionseverywhere.Fade;
 import com.transitionseverywhere.TransitionManager;
 import com.transitionseverywhere.TransitionSet;
 import com.transitionseverywhere.extra.Scale;
+
+import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,21 +52,38 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout kedua;
     @BindView(R.id.grubbt)
     ViewGroup grubbt;
+    @BindView(R.id.container)
+    ViewGroup containerr;
+    @BindView(R.id.main2bt)
+    LinearLayout main2bt;
+    @BindView(R.id.akunm)
+    LinearLayout akunm;
+    @BindView(R.id.profileimg)
+    ImageView profileimg;
+    @BindView(R.id.homeimg)
+    ImageView homeimg;
+    @BindView(R.id.hometx)
+    TextView hometx;
+    @BindView(R.id.profiletx)
+    TextView profiletx;
     String resultNama;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle("Tanahku");
         mContext = this;
         apiInterface = UtilsApi.getAPIService();
         sharedPrefManager = new SharedPrefManager(this);
-
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Loading");
+        progressDialog.setCancelable(false);
         tvNama.setText(sharedPrefManager.getSPNama());
-        pertama.setVisibility(View.GONE);
-        homea.setVisibility(View.VISIBLE);
-        kedua.setVisibility(View.GONE);
+        rumahhome();
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().show();
         }
@@ -72,22 +95,48 @@ public class MainActivity extends AppCompatActivity {
             resultNama = extras.getString("name");
         tvNama.setText(resultNama);
     }
+    @OnClick(R.id.homebt) void rumah(){
+        TransitionManager.beginDelayedTransition(containerr,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
+                new FastOutLinearInInterpolator()));
+        rumahhome();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().show();
+        }
+    }
+    @OnClick(R.id.profilebt) void profil(){
+        TransitionManager.beginDelayedTransition(containerr,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
+                new FastOutLinearInInterpolator()));
+        pertama.setVisibility(View.GONE);
+        homea.setVisibility(View.GONE);
+        kedua.setVisibility(View.GONE);
+        main2bt.setVisibility(View.VISIBLE);
+        akunm.setVisibility(View.VISIBLE);
+        homeimg.setImageResource(R.drawable.ic_baseline_home_24);
+        profileimg.setImageResource(R.drawable.ic_baseline_person_biru_24);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().show();
+        }
+    }
     @OnClick(R.id.pertamabt) void pert() {
-        TransitionManager.beginDelayedTransition(grubbt,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
+        TransitionManager.beginDelayedTransition(containerr,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
                 new FastOutLinearInInterpolator()));
         pertama.setVisibility(View.VISIBLE);
         homea.setVisibility(View.GONE);
         kedua.setVisibility(View.GONE);
+        main2bt.setVisibility(View.GONE);
+        akunm.setVisibility(View.GONE);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
     }
     @OnClick(R.id.keduabt) void kedu(){
-        TransitionManager.beginDelayedTransition(grubbt,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
+        TransitionManager.beginDelayedTransition(containerr,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
                 new FastOutLinearInInterpolator()));
         pertama.setVisibility(View.GONE);
         homea.setVisibility(View.GONE);
         kedua.setVisibility(View.VISIBLE);
+        main2bt.setVisibility(View.GONE);
+        akunm.setVisibility(View.GONE);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
@@ -113,9 +162,7 @@ public class MainActivity extends AppCompatActivity {
         if(!homea.isShown()){
             TransitionManager.beginDelayedTransition(grubbt,new TransitionSet().addTransition(new Scale(0.7f)).addTransition(new Fade()).setInterpolator(true ? new LinearOutSlowInInterpolator() :
                     new FastOutLinearInInterpolator()));
-            pertama.setVisibility(View.GONE);
-            homea.setVisibility(View.VISIBLE);
-            kedua.setVisibility(View.GONE);
+            rumahhome();
             if (getSupportActionBar() != null) {
                 getSupportActionBar().show();
             }
@@ -124,10 +171,28 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     @OnClick(R.id.btnLogout) void logout() {
-        sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
-        startActivity(new Intent(MainActivity.this, LoginActivity.class)
-                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-        finish();
+        progressDialog.show();
+        Call<UserResponse> logout = apiInterface.logout(sharedPrefManager.getSPToken());
+        logout.enqueue(new Callback<UserResponse>() {
+            @Override
+            public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                progressDialog.dismiss();
+                if (response.code() == 200) {
+                    sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_SUDAH_LOGIN, false);
+                    startActivity(new Intent(MainActivity.this, LoginActivity.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    finish();
+                } else {
+                    Toast.makeText(mContext, "Emai/Password salah", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UserResponse> call, Throwable t) {
+                progressDialog.dismiss();
+            }
+        });
+
     }
 //    @OnClick(R.id.btnCekAuth) void cekAuth() {
 //        Toast.makeText(this, sharedPrefManager.getSPToken(), Toast.LENGTH_SHORT).show();
@@ -147,6 +212,19 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //
 //    }
+    public static int dpToPx(int dp, Context context) {
+        float density = context.getResources().getDisplayMetrics().density;
+        return Math.round((float) dp * density);
+    }
+    public void rumahhome(){
+        pertama.setVisibility(View.GONE);
+        homea.setVisibility(View.VISIBLE);
+        kedua.setVisibility(View.GONE);
+        main2bt.setVisibility(View.VISIBLE);
+        akunm.setVisibility(View.GONE);
+        homeimg.setImageResource(R.drawable.ic_baseline_home_biru_24);
+        profileimg.setImageResource(R.drawable.ic_baseline_person_24);
+    }
     private void initComponents(){
         tvNama = (TextView) findViewById(R.id.tvNama);
     }

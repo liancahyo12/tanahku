@@ -20,67 +20,113 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
-
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="0dp"
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/username"
+    android:layout_width="match_parent"
+    app:boxBackgroundColor="@android:color/transparent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/logoapp"
+    app:errorEnabled="true">
+    <com.google.android.material.textfield.TextInputEditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoapp" />
-
-    <EditText
+        />
+</com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
+        app:boxBackgroundColor="@android:color/transparent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/action_sign_in_short"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
+        app:layout_constraintTop_toBottomOf="@id/username"
+        app:errorEnabled="true"
+        app:passwordToggleEnabled="true">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/prompt_password"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:selectAllOnFocus="true"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:id="@+id/login"
-        android:layout_width="wrap_content"
+        style="@style/mainbg"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/action_sign_in_short"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.2">
+        <TextView
+            style="@style/maintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:paddingLeft="10dp"
+            android:text="@string/action_sign_in_short"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:id="@+id/daftarbtn"
-        android:layout_width="wrap_content"
+        style="@style/mainbg"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:text="@string/action_register"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintVertical_bias="0.2">
+        <TextView
+            style="@style/maintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:paddingLeft="10dp"
+            android:text="@string/action_register"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
+
 
     <ProgressBar
         android:id="@+id/loading"

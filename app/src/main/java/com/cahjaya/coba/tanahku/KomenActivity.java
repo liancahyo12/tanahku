@@ -10,7 +10,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cahjaya.coba.tanahku.model.HasilKomen;
@@ -39,6 +42,20 @@ public class KomenActivity extends AppCompatActivity {
     String id;
     @BindView(R.id.koment)
     EditText etKomen;
+    @BindView(R.id.komenbt)
+    ImageButton btKomen;
+    @BindView(R.id.txt_nohak)
+    TextView nohak;
+    @BindView(R.id.txt_noberkas)
+    TextView noberkas;
+    @BindView(R.id.txt_tahunberkas)
+    TextView tahunberkas;
+    @BindView(R.id.txt_alamat)
+    TextView alamat;
+    @BindView(R.id.txt_pengaduant)
+    TextView pengaduant;
+    @BindView(R.id.txt_statusp)
+    TextView statusp;
     Handler handler = new Handler();
     int apiDelayed = 5*1000; //1 second=1000 milisecond, 5*1000=5seconds
     Runnable runnable;
@@ -49,6 +66,7 @@ public class KomenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_komen);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle("Pengaduan");
         mContext = this;
         Intent i = getIntent();
         id = i.getStringExtra("id");
@@ -60,6 +78,7 @@ public class KomenActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.dftkomen);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(KomenActivity.this);
         recyclerView.setLayoutManager(layoutManager);
+        getpengaduan();
         addData1();
     }
 
@@ -79,6 +98,45 @@ public class KomenActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         handler.removeCallbacks(runnable); //stop handler when activity not visible
+    }
+    public void getpengaduan(){
+        Call<pengaduan> getPengaduanid = apiInterface.getPengaduanid(id, sharedPrefManager.getSPToken());
+        getPengaduanid.enqueue(new Callback<pengaduan>() {
+            @Override
+            public void onResponse(Call<pengaduan> call, Response<pengaduan> response) {
+                progressDialog.dismiss();
+                if (response.isSuccessful()){
+                    nohak.setText(response.body().getNohak());
+                    noberkas.setText(response.body().getNoberkas());
+                    tahunberkas.setText(response.body().getTahun_berkas());
+                    alamat.setText(response.body().getAlamat());
+                    pengaduant.setText(response.body().getDeskripsi());
+                    if (response.body().getCase_status()==1){
+                        statusp.setText("Baru");
+                    }else if(response.body().getCase_status()==2){
+                        statusp.setText("Proses");
+                    }else{
+                        statusp.setText("Selesai");
+                        etKomen.setEnabled(false);
+                        btKomen.setEnabled(false);
+                    }
+                    Log.i("debug", "onResponse: BERHASIL");
+//                    Toast.makeText(mContext, "Pengaduan berhasil diajukan silahkan tunggu respon admin", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Log.i("debug", "onResponse: load data gagal");
+//                    String error_message = "Pengajuan pengaduan gagal, Mohon cek ulang data anda";
+//                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<pengaduan> call, Throwable t) {
+                Log.e("debug", "onFailure: ERROR > " + t.getMessage());
+                Toast.makeText(mContext, "Koneksi Internet Bermasalah", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     void addData1(){
         Call<HasilKomen> getPengaduanKomen = apiInterface.getPengaduanKomen(id,sharedPrefManager.getSPToken());

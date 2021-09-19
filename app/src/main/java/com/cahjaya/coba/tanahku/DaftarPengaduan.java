@@ -41,6 +41,7 @@ public class DaftarPengaduan extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar_pengaduan);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle("Pengaduan");
         mContext = this;
         apiInterface = UtilsApi.getAPIService();
         sharedPrefManager = new SharedPrefManager(this);

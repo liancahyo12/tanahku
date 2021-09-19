@@ -47,6 +47,7 @@ public class Cacl1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cacl1);
         ButterKnife.bind(this);
+        getSupportActionBar().setTitle("Perhitungan Biaya");
 
     }
     @OnClick(R.id.hitungbt) void hitungg(){
@@ -55,12 +56,12 @@ public class Cacl1 extends AppCompatActivity {
             strInput = luas1.getText().toString();
             luasa = Double.parseDouble(strInput);
             if (rdper.isChecked() && !rdnonper.isChecked()){
-                hasila = (luasa/500*40000)+100000+50000;
+                hasila = (luasa/500*40000)+350000+50000;
                 NumberFormat format = NumberFormat.getCurrencyInstance(localeID);
                 hasilcalc.setText(String.valueOf(format.format(hasila)));
             }
             else  if (!rdper.isChecked() && rdnonper.isChecked()){
-                hasila = (luasa/500*80000)+100000+50000;
+                hasila = (luasa/500*80000)+350000+50000;
                 NumberFormat format = NumberFormat.getCurrencyInstance(localeID);
                 hasilcalc.setText(String.valueOf(format.format(hasila)));
             }

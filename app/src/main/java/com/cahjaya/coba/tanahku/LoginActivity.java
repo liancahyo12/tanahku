@@ -15,6 +15,9 @@ import com.cahjaya.coba.tanahku.network.ApiInterface;
 import com.cahjaya.coba.tanahku.network.UtilsApi;
 import com.cahjaya.coba.tanahku.network.response.UserResponse;
 import com.cahjaya.coba.tanahku.utils.SharedPrefManager;
+import com.google.android.material.textfield.TextInputLayout;
+
+import org.w3c.dom.Text;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,9 +29,9 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     @BindView(R.id.username)
-    EditText etEmail;
+    TextInputLayout etEmail;
     @BindView(R.id.password)
-    EditText etPassword;
+    TextInputLayout etPassword;
 
     Context mContext;
     ApiInterface apiInterface;
@@ -57,8 +60,8 @@ public class LoginActivity extends AppCompatActivity {
     }
     @OnClick(R.id.login) void login() {
         progressDialog.show();
-        Call<UserResponse> postLogin = apiInterface.postLogin(etEmail.getText().toString(),
-                etPassword.getText().toString());
+        Call<UserResponse> postLogin = apiInterface.postLogin(etEmail.getEditText().getText().toString(),
+                etPassword.getEditText().getText().toString());
         postLogin.enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {

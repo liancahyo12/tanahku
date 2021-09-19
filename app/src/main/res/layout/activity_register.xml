@@ -98,22 +98,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:id="@+id/daftarbtn"
-        android:layout_width="wrap_content"
+        style="@style/mainbg"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="64dp"
-        android:enabled="true"
-        android:text="@string/action_register"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:clickable="true"
+        android:foreground="?attr/selectableItemBackground"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardElevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirm_password"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.1">
+        <TextView
+            style="@style/maintext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:paddingLeft="10dp"
+            android:text="@string/action_register"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </androidx.cardview.widget.CardView>
 
     <ProgressBar
         android:id="@+id/loading"
