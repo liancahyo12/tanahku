@@ -6,32 +6,97 @@
     card_view:cardCornerRadius="6dp"
     card_view:cardElevation="3dp"
     card_view:cardUseCompatPadding="true"
+    android:clickable="true"
+    android:foreground="?attr/selectableItemBackground"
     android:id="@+id/cv_main">
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="5dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nama1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No. Hak"/>
 
-        <!-- TextView Nama Mahasiwa -->
-        <TextView
-            android:id="@+id/txt_nama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_noberkas1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No. Berkas"/>
 
-        <!-- TextView Npm Mahasiswa -->
-        <TextView
-            android:id="@+id/txt_noberkas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_pengaduant1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text="Deskripsi"/>
+                <TextView
+                    android:id="@+id/txt_status1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text="Status"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nama12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
 
-        <!-- TextView NoHp Mahasiswa -->
-        <TextView
-            android:id="@+id/txt_pengaduant"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:maxLength="50"/>
+                <TextView
+                    android:id="@+id/txt_noberkas12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
 
+                <TextView
+                    android:id="@+id/txt_pengaduant12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text=" : "/>
+                <TextView
+                    android:id="@+id/txt_statusp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text=" : "/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nama"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_noberkas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_pengaduant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"/>
+                <TextView
+                    android:id="@+id/txt_statusp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"/>
+            </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

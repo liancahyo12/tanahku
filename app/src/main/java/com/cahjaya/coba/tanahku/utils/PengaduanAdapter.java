@@ -47,6 +47,14 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.Peng
         holder.txtNama.setText(dataList.get(position).getNohak());
         holder.txtNoberkas.setText(dataList.get(position).getNoberkas());
         holder.txtPengaduant.setText(dataList.get(position).getDeskripsi());
+        if (dataList.get(position).getCase_status()==1){
+            holder.txtStatusp.setText("Baru");
+        }else if(dataList.get(position).getCase_status()==2){
+            holder.txtStatusp.setText("Proses");
+        }else{
+            holder.txtStatusp.setText("Selesai");
+        }
+
         holder.cvMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +73,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.Peng
     }
 
     public class PengaduanViewHolder extends RecyclerView.ViewHolder{
-        private TextView txtNama, txtNoberkas, txtPengaduant;
+        private TextView txtNama, txtNoberkas, txtPengaduant, txtStatusp;
         public CardView cvMain;
 
         public PengaduanViewHolder(View itemView) {
@@ -73,6 +81,7 @@ public class PengaduanAdapter extends RecyclerView.Adapter<PengaduanAdapter.Peng
             txtNama = (TextView) itemView.findViewById(R.id.txt_nama);
             txtNoberkas = (TextView) itemView.findViewById(R.id.txt_noberkas);
             txtPengaduant = (TextView) itemView.findViewById(R.id.txt_pengaduant);
+            txtStatusp = (TextView) itemView.findViewById(R.id.txt_statusp);
             cvMain = (CardView) itemView.findViewById(R.id.cv_main);
         }
     }

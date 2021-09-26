@@ -6,11 +6,134 @@
     android:layout_height="match_parent"
     tools:context=".KomenActivity"
     android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/pengaduandata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:innerRadius="0dp"
+        android:shape="ring"
+        android:thicknessRatio="1.9"
+        app:cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nohak1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No. Hak"/>
+                <TextView
+                    android:id="@+id/txt_noberkas1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No. Berkas"/>
+                <TextView
+                    android:id="@+id/txt_tahunberkas1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tahun Berkas"/>
+                <TextView
+                    android:id="@+id/txt_alamat1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat Tanah"/>
+                <TextView
+                    android:id="@+id/txt_pengaduant1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text="Deskripsi"/>
+                <TextView
+                    android:id="@+id/txt_status1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text="Status"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nohak12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
+
+                <TextView
+                    android:id="@+id/txt_noberkas12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
+                <TextView
+                    android:id="@+id/txt_tahunberkas12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
+                <TextView
+                    android:id="@+id/txt_alamat12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" : "/>
+                <TextView
+                    android:id="@+id/txt_pengaduant12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text=" : "/>
+                <TextView
+                    android:id="@+id/txt_statusp1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"
+                    android:text=" : "/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/txt_nohak"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_noberkas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_tahunberkas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_alamat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/txt_pengaduant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"/>
+                <TextView
+                    android:id="@+id/txt_statusp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="50"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/dftkomen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/komenttt"/>
+        android:layout_above="@id/komenttt"
+        android:layout_below="@id/pengaduandata"/>
     <RelativeLayout
         android:id="@+id/komenttt"
         android:layout_width="match_parent"

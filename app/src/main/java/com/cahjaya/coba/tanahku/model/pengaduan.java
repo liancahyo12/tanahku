@@ -17,6 +17,8 @@ public class pengaduan {
     @SerializedName("alamat") String alamat;
     @Expose
     @SerializedName("deskripsi") String deskripsi;
+    @Expose
+    @SerializedName("case_status") int case_status;
 
     public int getId() {
         return id;
@@ -64,5 +66,13 @@ public class pengaduan {
 
     public void setDeskripsi(String deskripsi) {
         this.deskripsi = deskripsi;
+    }
+
+    public int getCase_status() {
+        return case_status;
+    }
+
+    public void setCase_status(int case_status) {
+        this.case_status = case_status;
     }
 }
