@@ -3,6 +3,7 @@
     package="com.cahjaya.coba.tanahku">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Tanahku">
+        android:theme="@style/Theme.Tanahku"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".UbahpassActivity"
+            android:exported="false" />
         <activity
             android:name=".KomenActivity"
             android:exported="true" />

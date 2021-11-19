@@ -2,15 +2,21 @@
     <string name="app_name">Tanahku</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
+    <string name="prompt_oldpassword">Password Lama</string>
+    <string name="prompt_newpassword">Password Baru</string>
+    <string name="confirm_newpassword">Konfirmasi Password Baru</string>
     <string name="confirm_password">Konfirmasi Password</string>
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Masuk</string>
     <string name="action_register">Daftar</string>
+    <string name="action_gantipass">Ubah Password</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
     <string name="action_add">"Tambah"</string>
     <string name="tag">Ayo daftar untuk dapat maju ke tahap selanjutnya</string>
+    <string name="gantipass">Ubah Password</string>
+    <string name="tag_gantipass">Silahkan ubah password anda</string>
     <string name="register">Daftar</string>
 </resources>

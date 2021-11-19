@@ -26,6 +26,13 @@ public interface ApiInterface {
     @GET("api/auth/user-profile")
     public Call<User> getUser(@Header("Authorization") String token);
 
+    @FormUrlEncoded
+    @POST("api/auth/ubahpassword")
+    public Call<User> postUbahpass(@Header("Authorization") String token,
+                              @Field("current_password") String current_password,
+                              @Field("password") String password,
+                              @Field("confirm_password") String confirm_password);
+
     @POST("api/auth/refresh")
     public Call<UserResponse> refreshToken(@Header("Authorization") String token);
 
@@ -50,6 +57,9 @@ public interface ApiInterface {
 
     @GET("api/pengaduans")
     public Call<HasilDaftarPengaduan> getPengaduan(@Header("Authorization") String token);
+
+    @GET("api/unduhform")
+    public Call<ResponseBody> getUnduhform(@Header("Authorization") String token);
 
     @GET("api/pengaduans/{id}")
     public Call<pengaduan> getPengaduanid(@Path("id") String id,

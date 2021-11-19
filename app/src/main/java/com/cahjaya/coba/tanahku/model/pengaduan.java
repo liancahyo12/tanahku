@@ -3,6 +3,8 @@ package com.cahjaya.coba.tanahku.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.File;
+
 public class pengaduan {
 
     @Expose
@@ -19,6 +21,9 @@ public class pengaduan {
     @SerializedName("deskripsi") String deskripsi;
     @Expose
     @SerializedName("case_status") int case_status;
+    @Expose
+    @SerializedName("form") File form;
+
 
     public int getId() {
         return id;
@@ -74,5 +79,13 @@ public class pengaduan {
 
     public void setCase_status(int case_status) {
         this.case_status = case_status;
+    }
+
+    public File getForm() {
+        return form;
+    }
+
+    public void setForm(File form) {
+        this.form = form;
     }
 }
